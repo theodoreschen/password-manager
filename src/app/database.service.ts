@@ -25,6 +25,13 @@ export class DatabaseService {
       );
   }
 
+  deleteRecord (record: PasswordEntry): Observable<any> {
+    return this.http.post(`${this.backendUrl}/delete`, record, this.jsonHttpOptions)
+      .pipe(
+        catchError(this.handleError<any>("DatabaseService.deleteRecord"))
+      );
+  }
+
   getAllRecords (): Observable<PasswordEntry[]> {
     return this.http.get<PasswordEntry[]>(`${this.backendUrl}/getall`)
       .pipe(
