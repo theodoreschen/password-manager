@@ -8,3 +8,7 @@ export interface PasswordEntry {
   pwlen: number;
   comments: string;
 }
+
+export function serializePasswordEntry(p: PasswordEntry): string {
+  return `<${p.sitename}: ${p.hashalgo}(${p.seed})[${p.pwlen}]>`
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from '../database.service';
+import { PasswordEntry, serializePasswordEntry } from '../password-entry';
 
 @Component({
   selector: 'app-main',
@@ -6,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  constructor() { }
+  passwordEntries: PasswordEntry[];
+
+  constructor(
+    private database: DatabaseService,
+  ) { }
 
   ngOnInit(): void {
+    this.database.getAllRecords()
+      .subscribe( results => {
+        this.passwordEntries = results;
+      });
   }
 
+  serialize(p: PasswordEntry): string {
+    return serializePasswordEntry(p);
+  }
 }
