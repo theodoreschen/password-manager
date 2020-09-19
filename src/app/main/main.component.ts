@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../database.service';
-import { PasswordEntry, serializePasswordEntry } from '../password-entry';
+import { PasswordEntry } from '../password-entry';
 
 @Component({
   selector: 'app-main',
@@ -19,9 +19,5 @@ export class MainComponent implements OnInit {
       .subscribe( results => {
         this.passwordEntries = results;
       });
-  }
-
-  serialize(p: PasswordEntry): string {
-    return serializePasswordEntry(p);
   }
 }
