@@ -1,6 +1,6 @@
 <app-add-password-entry></app-add-password-entry>
 <ul>
   <li *ngFor="let passwordEntry of passwordEntries">
-    {{ passwordEntry }}
+    <app-password-entry [passwordEntry]=passwordEntry></app-password-entry>
   </li>
 </ul>

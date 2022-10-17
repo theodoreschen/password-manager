@@ -10,12 +10,14 @@ import { MainComponent } from './main/main.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AddPasswordEntryComponent } from './add-password-entry/add-password-entry.component';
+import { PasswordEntryComponent } from './password-entry/password-entry.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     AddPasswordEntryComponent,
+    PasswordEntryComponent,
   ],
   imports: [
     BrowserModule,

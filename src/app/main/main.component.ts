@@ -15,9 +15,18 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.passwordEntries = [];
     this.database.getAllRecords()
       .subscribe( results => {
-        this.passwordEntries = results;
+        results.forEach( entry => {
+          this.passwordEntries.push(
+            new PasswordEntry(entry.sitename, entry.weburl, entry.hashalgo, entry.seed, entry.pwlen, entry.comments)
+          );
+        });
+
+        // this.passwordEntries.forEach( entry => {
+        //   console.log(entry);
+        // });
       });
   }
 }
